@@ -1,13 +1,38 @@
 import { createStore } from "redux";
 
-const reducer = (state, action) => (action.type === "INC" ? state + 1 : state);
+const reducer = (state, action) => state;
 
-const initialState = 0;
+//initial state
+const initialState = {
+    recipes:[
+        {
+            id:10,
+            name:"Omlette"
+        }
+    ],
+    ingredients:[
+        {
+            recipe_id:10,
+            name:"eggs",
+            quantity:1
+        },
+        {
+            recipe_id:10,
+            name:"milk",
+            quantity:2
+        }
+
+    ]
+
+};
 
 const store = createStore(reducer, initialState);
 
-// store.subscribe(() => document.getElementById('counter').innerText = store.getState());
+store.subscribe(()=>console.log("store changed!"));
 
-// setInterval(() => store.dispatch({ type: 'INC' }), 500);
+store.dispatch({type:""});
 
-console.log("Redux started");
+
+console.log("Redux started! ")
+
+
